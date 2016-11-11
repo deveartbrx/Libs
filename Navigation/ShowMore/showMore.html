@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+
+		.hideIt{
+			display: none;
+		}
+		#carregar_mais{
+			position: relative;
+			left: 50%;
+			margin-left: -70px;
+			background-color: $cinza_c;
+			border-radius: $border_radius;
+			padding: 10px 20px;
+
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<div class="col-xs-6 col-sm-3 hideIt"> <p>exibir isto </p></div>
+		<a href="#" id="carregar_mais">Carregar Mais</a>
+	</div>
+  
+
+	<script type="text/javascript">
+    $(function(){
+      // Select and show the firsts 8 elements when the site start
+      $(".hideIt:hidden").slice(0, 8).show();
+	    // Active the function to show more itens
+	    $("#show_more").click(function(e){ 
+	    	var pos1 = $("#show_more").offset().top;
+	    	e.preventDefault();
+	        // Select and show the next 8 elements
+	        $(".hideIt:hidden").slice(0, 8).show();
+
+	        // Get the offset from button
+	        var pos2 = $("#show_more").offset().top;
+
+	        //Scrolling to anchor.
+	        // Set a variation time when scrolling
+	        var variation = 2;
+	        var timeScrolling = (pos2  - pos1) * variation;
+	        $('html, body').delay(150).animate({
+	        	scrollTop: pos2
+	        }, timeScrolling);
+
+	        // if show all items, hide the buttom.
+	        if($(".hideIt:hidden").length == 0){ 
+	        	$("#carregar_mais").addClass('hide');
+	        }
+	    });
+	});
+</script>
+</body>
+</html>
